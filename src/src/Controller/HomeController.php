@@ -18,7 +18,11 @@ class HomeController extends AbstractController
         $posts = $postRepository->findAll();
 
         return [
-            'posts' => $posts
+            'posts' => [
+                ['name' => 'first',
+                'content' => 'lorem ipsum'
+                    ]
+            ]
         ];
     }
 }
