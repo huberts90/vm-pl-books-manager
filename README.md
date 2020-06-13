@@ -48,3 +48,4 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:8000/api/boo
 
 ## Known issues
 - problem with penetrating DB for app & tests
+- in case of problem with missing DB table, please `restart` containers with `make stop & make start`
