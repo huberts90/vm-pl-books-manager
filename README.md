@@ -1,37 +1,50 @@
-# Symfony 5 docker containers
-
-A Proof-of-concept of a running Symfony 5 application inside containers
-
-```
-git clone git@gitlab.com:martinpham/symfony-5-docker.git
-
-cd symfony-5-docker
-
-cd docker
-
-docker-compose up
+# vm.pl book-manager PoC
+## Help
+```shell script
+make help
 ```
 
-## Compose
-
-### Database (MariaDB)
-
-...
-
-### PHP (PHP-FPM)
-
-Composer is included
-
-```
-docker-compose run php-fpm composer 
+## Run
+```shell script
+make start (for the first time it )
+make stop
 ```
 
-To run fixtures
-
+## Tests
+```shell script
+make tests
 ```
-docker-compose run php-fpm bin/console doctrine:fixtures:load
+
+## ENV
+- please create `.env` and `.env.test` based on
+`.env.example`
+
+## API
+1.Add book
+```shell script
+curl -H "Content-Type: application/json" -X POST -d '{"name":"adventure","category":"non-fiction"}' http://localhost:8000/api/books/
+```
+2.Update book
+```shell script
+curl -H "Content-Type: application/json" -X PUT -d '{"category":"adventure_novel"}' http://localhost:8000/api/books/1/
 ```
 
-### Webserver (Nginx)
+3.Get book
+```shell script
+curl -H "Content-Type: application/json" -X GET http://localhost:8000/api/books/1/
+```
 
-...
+4.Get books
+```shell script
+curl -H "Content-Type: application/json" -X GET http://localhost:8000/api/books/
+```
+5.Delete book
+```shell script
+curl -H "Content-Type: application/json" -X DELETE http://localhost:8000/api/books/1/
+```
+
+## GUI
+1. Simple book list: `http://localhost:8000/`
+
+## Known issues
+- problem with penetrating DB for app & tests

@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Book manager</h1>
+    <ul>
+        {% for book in books %}
+            <li>
+                <b>{{book.name}}</b>
+                <p>{{book.category}}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,2 +1,11 @@
+.env
+.env.test
+/public/bundles/
+/var/
+/vendor/
 /docker/database/data/
+/docker/.env.local
 .idea/
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
